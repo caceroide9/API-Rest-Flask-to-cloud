@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+{% block body %}
+ <div class="row"><h3>Agregar Clientes</h3></div>
+  <div class="row">
+    <div class="col-md-4">
+      {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      <div class="card card-body">
+        <form action="{{url_for('add_employee')}}" method="POST">
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Auxiliar" placeholder="Ingrese A_Auxilia">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Fecha_Corte_Informe" placeholder="Ingrese A_Fecha_Corte_Informe">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Fecha_Emision_Informe" placeholder="Ingrese A_Fecha_Emision_Informe">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Empresa" placeholder="IngreseA_Empresa">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Rut_Empresa" placeholder="Ingrese A_Rut_Empresa">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Razon_Social" placeholder="Ingrese A_Razon_Social">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Direccion" placeholder="Ingrese A_Direccion">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Comuna" placeholder="Ingrese A_Comuna">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Division" placeholder="Ingrese A_Division">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Division_Glosa" placeholder="Ingrese A_Division_Glosa">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Unidad" placeholder="Ingrese A_Unidad">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Unidad_Glosa" placeholder="Ingrese A_Unidad_Glosa">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Rut" placeholder="Ingrese A_Rut" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Razon" placeholder="Ingrese A_Razon" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Sucursal" placeholder="Ingrese A_Sucursal" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Sucursal_Descripcion" placeholder="Ingrese A_Sucursal_Descripcion" required>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Cuenta" placeholder="Ingrese A_Cuenta">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Cuenta_Nombre" placeholder="Ingrese A_Cuenta_Nombre">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Tipo_Documento" placeholder="Ingrese A_Tipo_Documento">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Tipo_Documento_Glosa" placeholder="Ingrese A_Tipo_Documento_Glosa">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Nro_Documento" placeholder="Ingrese A_Nro_Documento" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Cuota" placeholder="Ingrese A_Cuota" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Moneda" placeholder="Ingrese A_Moneda" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="A_Moneda_Glosa"  list="A_Moneda_GlosaOptions" placeholder="Ingrese A_Moneda_Glosa" required>
+            <datalist id="A_Moneda_GlosaOptions">
+              <option value="Dolar Americano">
+                <option value="Peso CLP">
+                <option value="Dolar Canadiense">
+                <option value="UF">
+                <option value="Libra Esterlina">
+                <option value="Euro">
+             </datalist>
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Saldo_Origen" placeholder="Ingrese A_Saldo_Origen">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Fecha_Emision" placeholder="Ingrese A_Fecha_Emision">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Fecha_Vencimiento" placeholder="Ingrese A_Fecha_Vencimiento">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Saldo_Anterior" placeholder="Ingrese A_Saldo_Anterior">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Saldo_30" placeholder="Ingrese A_Saldo_30">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Saldo_60" placeholder="Ingrese A_Saldo_60">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Saldo_90" placeholder="Ingrese A_Saldo_90">
+          </div>
+          <div class="form-group">
+            <input type="hidden" class="form-control" name="A_Saldo_Posterior" placeholder="Ingrese A_Saldo_Posterior">
+          </div>
+  
+          <div class="form-group">
+            <input type="text" class="form-control" name="Comercial" placeholder="Ingrese Comercial" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="AptoVenta" placeholder="Ingrese AptoVenta" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Condventa" placeholder="Ingrese Condventa" list="CondventaOptions" required> 
+            <datalist id="CondventaOptions">
+              <option value="Contado">
+               <option value="30 dias">
+               <option value="45 dias">
+               <option value="60 dias">
+               <option value="90 dias">
+               <option value="120 dias">
+             </datalist>
+          </div>
+
+          
+          <div class="form-group">
+            <input type="text" class="form-control" name="Dias" placeholder="Ingrese Dias" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Moneda" placeholder="Ingrese Moneda" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="Monto" placeholder="Ingrese Monto" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="MontoEquiPesos" placeholder="Ingrese MontoEquiPesos" required> 
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="SaldoLinea" placeholder=" Ingrese SaldoLinea" required>
+          </div>
+          <button class="btn btn-primary btn-block">
+            Save 
+          </button>
+          
+        </form>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
+        <thead>
+        <tr>
+          <td>A_Razon</td>
+          <td>A_Moneda_Glosa</td>
+          <td>SaldoLinea</td>
+          <td>Acciones</td>
+
+          
+        </tr>
+        </thead>
+        <tbody>
+        {% for data in employee %}
+        <tr>
+          <td>{{data.A_Razon}}</td>
+          <td>{{data.A_Moneda_Glosa}}</td>
+          <td>{{data.SaldoLinea}}</td>
+          
+  
+          
+          <td>
+            <a href="/edit/{{data.ID}}" class="btn btn-primary waves-effect waves-light">Editar</a>
+            <a href="/delete/{{data.ID}}" class="btn btn-primary waves-effect waves-light">Eliminar</a>
+          </td>
+
+          
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+ 
+{% endblock %}
+
+
+
+
+
+       
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

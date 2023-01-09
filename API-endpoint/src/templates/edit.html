@@ -1,0 +1,324 @@
+
+{% extends "layout.html" %}
+{% block body %}
+ 
+  <div class="row">
+    <div class="col-md-4">
+      {% with messages = get_flashed_messages()  %}
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+      
+      
+            </div>
+
+           
+            <div class="card card-body">
+              <form action="/update/{{employee.ID}}" method="POST">
+                <div class="row">
+                  <div class="col-lg-6">
+                      <div>
+                          <!-- <div class="mb-3">
+                              <label for="example-text-input" class="form-label"></label>
+                              <input class="form-control" type="hidden" value="{{employee.A_Auxiliar}}" name="A_Auxiliar">
+                          </div>
+
+                          <div class="mb-3">
+                            <label for="example-text-input" class="form-label">A_Fecha_Corte_Informe</label>
+                            <input class="form-control" type="hidden" value="{{employee.A_Fecha_Corte_Informe}}" name="A_Fecha_Corte_Informe">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Fecha_Emision_Informe</label>
+                          <input class="form-control" type="text" value="{{employee.A_Fecha_Emision_Informe}}" name="A_Fecha_Emision_Informe">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Empresa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Empresa}}" name="A_Empresa">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Rut_Empresa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Rut_Empresa}}" name="A_Rut_Empresa">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Razon_Social</label>
+                          <input class="form-control" type="text" value="{{employee.A_Razon_Social}}" name="A_Razon_Social">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Direccion</label>
+                          <input class="form-control" type="text" value="{{employee.A_Direccion}}" name="A_Direccion">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Comuna</label>
+                          <input class="form-control" type="text" value="{{employee.A_Comuna}}" name="A_Comuna">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Division</label>
+                          <input class="form-control" type="text" value="{{employee.A_Division}}" name="A_Division">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Division_Glosa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Division_Glosa}}" name="A_Division_Glosa">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Unidad</label>
+                          <input class="form-control" type="text" value="{{employee.A_Unidad}}" name="A_Unidad">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Unidad_Glosa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Unidad_Glosa}}" name="A_Unidad_Glosa">
+                        </div> -->
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Rut</label>
+                          <input class="form-control" type="text" value="{{employee.A_Rut}}" name="A_Rut" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Razon</label>
+                          <input class="form-control" type="text" value="{{employee.A_Razon}}" name="A_Razon" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Sucursal</label>
+                          <input class="form-control" type="text" value="{{employee.A_Sucursal}}" name="A_Sucursal" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Sucursal_Descripcion</label>
+                          <input class="form-control" type="text" value="{{employee.A_Sucursal_Descripcion}}" name="A_Sucursal_Descripcion" required>
+                        </div>
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Cuenta</label>
+                          <input class="form-control" type="text" value="{{employee.A_Cuenta}}" name="A_Cuenta">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Cuenta_Nombre</label>
+                          <input class="form-control" type="text" value="{{employee.A_Cuenta_Nombre}}" name="A_Cuenta_Nombre">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Tipo_Documento</label>
+                          <input class="form-control" type="text" value="{{employee.A_Tipo_Documento}}" name="A_Tipo_Documento">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Tipo_Documento_Glosa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Tipo_Documento_Glosa}}" name="A_Tipo_Documento_Glosa">
+                        </div> -->
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Nro_Documento</label>
+                          <input class="form-control" type="text" value="{{employee.A_Nro_Documento}}" name="A_Nro_Documento" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Cuota</label>
+                          <input class="form-control" type="text" value="{{employee.A_Cuota}}" name="A_Cuota" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Tipo_Documento_Glosa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Tipo_Documento_Glosa}}" name="A_Tipo_Documento_Glosa" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Moneda</label>
+                          <input class="form-control" type="text" value="{{employee.A_Moneda}}" name="A_Moneda" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">Comercial</label>
+                          <input class="form-control" type="text" value="{{employee.Comercial}}" name="Comercial" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <button type="submit" class="btn btn-primary btn-block" onclick=prueba()>
+                            Update
+                          </button>
+                        </div>
+
+                        
+
+                        
+                    
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="mt-3 mt-lg-0">
+
+                        
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Saldo_Origen</label>
+                          <input class="form-control" type="text" value="{{employee.A_Saldo_Origen}}" name="A_Saldo_Origen">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Fecha_Emision</label>
+                          <input class="form-control" type="text" value="{{employee.A_Fecha_Emision}}" name="A_Fecha_Emision">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Fecha_Vencimiento</label>
+                          <input class="form-control" type="text" value="{{employee.A_Fecha_Vencimiento}}" name="A_Fecha_Vencimiento">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Saldo_Anterior</label>
+                          <input class="form-control" type="text" value="{{employee.A_Saldo_Anterior}}" name="A_Saldo_Anterior">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Saldo_30</label>
+                          <input class="form-control" type="text" value="{{employee.A_Saldo_30}}" name="A_Saldo_30">
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Saldo_60</label>
+                          <input class="form-control" type="text" value="{{employee.A_Saldo_60}}" name="A_Saldo_60">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Saldo_90</label>
+                          <input class="form-control" type="text" value="{{employee.A_Saldo_90}}" name="A_Saldo_90">
+                        </div> -->
+
+                        <!-- <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Saldo_Posterior</label>
+                          <input class="form-control" type="text" value="{{employee.A_Saldo_Posterior}}" name="A_Saldo_Posterior">
+                        </div> -->
+
+                        
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">AptoVenta</label>
+                          <input class="form-control" type="text" value="{{employee.AptoVenta}}" name="AptoVenta" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">Condventa</label>
+                          <input class="form-control" type="text" value="{{employee.Condventa}}" name="Condventa" list="CondventaOptions" placeholder="Condicion de venta a" required>
+                          <datalist id="CondventaOptions">
+                           <option value="Contado">
+                            <option value="30 dias">
+                            <option value="45 dias">
+                            <option value="60 dias">
+                            <option value="90 dias">
+                            <option value="120 dias">
+                          </datalist>
+                        </div>
+
+                        
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">Dias</label>
+                          <input class="form-control" type="text" value="{{employee.Dias}}" name="Dias" required> 
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">Moneda</label>
+                          <input class="form-control" type="text" value="{{employee.Moneda}}" id="mytext" name="Moneda" readonly=»readonly>
+                          <script>
+                            function prueba(){
+                              var x = document.getElementById("A_Moneda_Glosa").value;
+                              var y;
+                              if(x=='Dolar Americano'){
+                                y=2;
+
+                              }
+                              else if(x=='Peso CLP'){
+                                y=1;
+
+                              }
+                              else if(x=='Dolar Canadiense'){
+                                y=6;
+
+                              }
+                              else if(x=='UF'){
+                                y=5;
+
+                              }
+                              else if(x=='Libra Esterlina'){
+                                y=4;
+
+                              }
+                              else{
+                                y=3;
+
+                              }
+                              console.log(y)
+                              document.getElementById("mytext").value = y;
+
+                            }
+                          </script>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">A_Moneda_Glosa</label>
+                          <input class="form-control" type="text" value="{{employee.A_Moneda_Glosa}}" id="A_Moneda_Glosa" name="A_Moneda_Glosa" list="A_Moneda_GlosaOptions" placeholder="Seleccione" required onclick="prueba()">
+                          <datalist id="A_Moneda_GlosaOptions">
+                           <option value="Dolar Americano">
+                            <option value="Peso CLP">
+                            <option value="Dolar Canadiense">
+                            <option value="UF">
+                            <option value="Libra Esterlina">
+                            <option value="Euro">
+                          </datalist>
+
+                        </div>
+
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">Monto</label>
+                          <input class="form-control" type="text" value="{{employee.Monto}}" name="Monto" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">MontoEquiPesos</label>
+                          <input class="form-control" type="text" value="{{employee.MontoEquiPesos}}" name="MontoEquiPesos" required>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="example-text-input" class="form-label">SaldoLinea</label>
+                          <input class="form-control" type="text" value="{{employee.SaldoLinea}}" name="SaldoLinea" required >
+                        </div>
+
+                        
+
+                    
+                          
+
+                      </div>
+                  </div>
+              </div>
+            </form>
+          </div>
+  
+    
+  </div>
+</div>
+ 
+{% endblock %}
+
+
